@@ -598,7 +598,7 @@ func (d *Server) Run(term *os.File, path tree.Path, args []string, cred *ucred) 
 	}
 	if !resp {
 		d.auditer.LogUserCmd(auditstr, 0)
-		return -1, fmt.Errorf(accessDenied)
+		return -1, fmt.Errorf("%s", accessDenied)
 	}
 	d.auditer.LogUserCmd(auditstr, 1)
 
