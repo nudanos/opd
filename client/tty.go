@@ -34,7 +34,7 @@ func startSigWinch(watch io.Writer, f *os.File, done chan struct{}) {
 		return
 	}
 	go func() {
-		sigwinch := make(chan os.Signal)
+		sigwinch := make(chan os.Signal, 1)
 		signal.Notify(sigwinch, syscall.SIGWINCH)
 		for {
 			select {

@@ -115,7 +115,7 @@ var grp *string = flag.String("group",
 	"Set socket group ownership to this group")
 
 func sigdumpmem() {
-	sigch := make(chan os.Signal)
+	sigch := make(chan os.Signal, 1)
 	signal.Notify(sigch, syscall.SIGUSR2)
 	for {
 		<-sigch
@@ -131,7 +131,7 @@ func sigdumpmem() {
 }
 
 func sigstartprof() {
-	sigch := make(chan os.Signal)
+	sigch := make(chan os.Signal, 1)
 	signal.Notify(sigch, syscall.SIGUSR1)
 	for {
 		<-sigch
@@ -153,7 +153,7 @@ func sigstartprof() {
 }
 
 func sigloadtree(asig chan os.Signal) {
-	sigch := make(chan os.Signal)
+	sigch := make(chan os.Signal, 1)
 	signal.Notify(sigch, syscall.SIGHUP)
 	for {
 		sig := <-sigch

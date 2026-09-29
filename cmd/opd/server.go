@@ -348,7 +348,7 @@ func (conn *SrvConn) Handle() {
 		err = conn.readRequest(req)
 		if err != nil {
 			if err != io.EOF {
-				conn.Srv.Logf(err.Error())
+				conn.Srv.Logf("%s", err.Error())
 			}
 			break
 		}

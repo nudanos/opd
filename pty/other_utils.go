@@ -70,7 +70,7 @@ func Setsize(f *os.File, rows, cols uint16) error {
 }
 
 func Resizer(parent, child *os.File) {
-	sigwinch := make(chan os.Signal)
+	sigwinch := make(chan os.Signal, 1)
 	signal.Notify(sigwinch, syscall.SIGWINCH)
 
 	for {
