@@ -1,3 +1,9 @@
+opd (1.17) trixie; urgency=medium
+
+  * Port to Debian 13 (trixie): debhelper-compat 13, Standards-Version 4.7.2, Rules-Requires-Root, NuDanOS Vcs.
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Tue, 29 Sep 2026 07:33:07 -0700
+
 opd (1.16) unstable; urgency=medium
 
   [ William Ivory ]

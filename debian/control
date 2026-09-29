@@ -1,10 +1,8 @@
 Source: opd
 Section: admin
 Priority: optional
-Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
-Build-Depends:
- debhelper (>= 9),
- debhelper (>= 9.20160709) | dh-systemd,
+Maintainer: NuDanOS Maintainers <jon@fernandez.tech>
+Build-Depends: debhelper-compat (= 13),
  dh-golang (>= 1.18),
  dh-yang,
  golang (>=2:1.4),
@@ -26,7 +24,10 @@ Build-Depends:
  libaudit-dev,
  libjansson-dev,
  libvyatta-util-dev (>=0.14)
-Standards-Version: 3.9.8
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/nudanos/opd.git
+Vcs-Browser: https://github.com/nudanos/opd
 
 Package: vyatta-opd
 Architecture: any
@@ -34,7 +35,7 @@ Replaces: vyatta-op
 Description: Operational mode daemon
  Vyatta operational mode daemon provides operational mode commands
  and command authorization.
-Depends:
+Depends: 
  adduser,
  libcap2-bin,
  lsb-base (>= 3.0-6),
@@ -59,7 +60,7 @@ Description: opd client program
 
 Package: vyatta-op-shell
 Architecture: all
-Depends:
+Depends: 
  bash (>= 5~) | vyatta-bash (>= 1:4.4-1vyatta12),
  bash-completion,
  less,

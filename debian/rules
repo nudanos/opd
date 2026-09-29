@@ -1,4 +1,5 @@
 #!/usr/bin/make -f
+export GO111MODULE := off
 #DH_VERBOSE=1
 export DH_OPTIONS
 export DH_GOPKG := github.com/danos/opd
@@ -31,7 +32,7 @@ SYSTEMD_DEV_VER := $(shell dpkg-query -W -f='$${Version}' golang-github-coreos-g
 SYSTEMD_DEV_NEW := $(shell dpkg --compare-versions $(SYSTEMD_DEV_VER) ge 17 && echo "1" || echo "0")
 
 %:
-	dh $@ --buildsystem=golang --with=systemd,golang,yang --builddirectory=$(GOBUILDDIR)
+	dh $@ --buildsystem=golang --with golang,yang --builddirectory=$(GOBUILDDIR)
 
 override_dh_auto_configure:
 	if [ "$(SYSTEMD_DEV_NEW)" = "1" ]; then \
