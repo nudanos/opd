@@ -1,3 +1,10 @@
+opd (1.18) trixie; urgency=medium
+
+  * Run op-mode templates with /bin/bash: Debian 13's /bin/sh is dash, and
+    bash templates failed with "Bad substitution".
+
+ -- NuDanOS Maintainers <jon@fernandez.tech>  Wed, 07 Oct 2026 02:12:21 -0700
+
 opd (1.17) trixie; urgency=medium
 
   * Port to Debian 13 (trixie): debhelper-compat 13, Standards-Version 4.7.2, Rules-Requires-Root, NuDanOS Vcs.

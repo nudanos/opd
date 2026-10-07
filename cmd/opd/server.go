@@ -642,9 +642,9 @@ func (d *Server) Run(term *os.File, path tree.Path, args []string, cred *ucred) 
 	cenv = append(cenv, rpc.Env...)
 	cenv = append(cenv, pathEnv)
 
-	/*This may not be clear 'sh -c' allows us to wrap text in a shell,
+	/*This may not be clear 'bash -c' allows us to wrap text in a shell,
 	  "opd" is $0, and the path is the rest of $@; this mimics the current behvaior*/
-	var shargs = []string{"sh", "-c", com, "opd"}
+	var shargs = []string{"/bin/bash", "-c", com, "opd"} // templates are bash; /bin/sh is dash
 	var argv = []string{"-user", u.Username}
 	if setuid {
 		argv = append(argv, "-setprivs")
@@ -968,7 +968,7 @@ func (d *Server) allowedInternal(path tree.Path, cred *ucred, helpmode bool) ([]
 	allow = comp_words + "; " + allow
 
 	var args = []string{"/opt/vyatta/sbin/lu", "-user", u.Username,
-		"sh", "-c", allow, "opd"}
+		"/bin/bash", "-c", allow, "opd"} // COMP_WORDS=( ) is a bash array
 	args = append(args, path...)
 
 	cmd := exec.Command(args[0], args[1:]...)
