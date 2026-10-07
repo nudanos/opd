@@ -54,3 +54,4 @@ usr/share/gocode/src/github.com/danos/opd/tmplscripts/system/acm/operational-rul
 usr/share/gocode/src/github.com/danos/opd/yang/vyatta-opd-extensions-v1.yang
 usr/share/gocode/src/github.com/danos/opd/yang/vyatta-opd-v1.yang
 usr/share/gocode/src/github.com/danos/opd/yang/vyatta-system-acm-opd-v1.yang
+usr/share/gocode/src/github.com/danos/opd/test/template-shell.sh
